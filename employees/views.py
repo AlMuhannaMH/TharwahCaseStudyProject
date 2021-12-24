@@ -5,9 +5,11 @@ from rest_framework import status
 from employees.models import Employee, Department
 from employees.serializers import EmployeeSerializer, DepartmentSerializer
 from rest_framework.decorators import api_view
+from django.views.decorators.csrf import csrf_exempt
 
 
 @api_view(['GET', 'POST', 'DELETE'])
+@csrf_exempt
 def employee_list(request):
     # Retrieve objects (with condition)
     if request.method == 'GET':
@@ -31,6 +33,7 @@ def employee_list(request):
         return JsonResponse({'message': '{} Employees were deleted successfully!'.format(count[0])}, status=status.HTTP_204_NO_CONTENT)
 
 
+@csrf_exempt
 def department_list(request):
     # Retrieve objects (with condition)
     if request.method == 'GET':
@@ -55,6 +58,7 @@ def department_list(request):
 
 
 @api_view(['GET', 'PUT', 'DELETE'])
+@csrf_exempt
 def employee_detail(request, pk):
     try:
         employee = Employee.objects.get(pk=pk)
@@ -78,6 +82,7 @@ def employee_detail(request, pk):
         return JsonResponse({'message': 'Employee was deleted successfully!'}, status=status.HTTP_204_NO_CONTENT)
 
 
+@csrf_exempt
 def department_detail(request, pk):
     try:
         department = Department.objects.get(pk=pk)
