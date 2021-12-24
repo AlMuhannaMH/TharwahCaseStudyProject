@@ -5,7 +5,8 @@ from employees.models import Employee, Department
 class EmployeeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Employee
-        fields = ('first_name',
+        fields = ('id',
+                  'first_name',
                   'last_name',
                   'job_title',
                   'department',
@@ -15,5 +16,6 @@ class EmployeeSerializer(serializers.ModelSerializer):
 class DepartmentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Department
-        fields = ('hod',
+        fields = ('id',
+                  'hod',
                   'name')
