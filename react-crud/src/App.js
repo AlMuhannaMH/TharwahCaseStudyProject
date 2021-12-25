@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { Switch, Route, Link } from "react-router-dom";
+import { Routes, Route, Link } from "react-router-dom";
 import 'antd/dist/antd.css';
-import { Layout, Menu, Breadcrumb } from 'antd';
+import { Layout, Menu } from 'antd';
 import "./App.css";
 
 import AddEmployee from "./components/AddEmployee";
@@ -21,17 +21,18 @@ function App() {
       </Header>
       <Content className="site-layout" style={{ padding: '0 50px', marginTop: 64 }}>
         <div className="site-layout-background" style={{ padding: 24, minHeight: 380 }}>
-          <div>
-          {/* <Switch>
-          <Route exact path={["/", "/employees"]} component={EmployeesList} />
-          <Route exact path="/add" component={AddEmployee} />
-          <Route path="/employees/:id" component={Employee} />
-          </Switch> */}
-          </div>
+            contect
         </div>
       </Content>
       <Footer style={{ textAlign: 'center' }}>Tharwah ©2021 Created by MHM</Footer>
     </Layout>
+    <div>
+      <Routes>
+        <Route path='/employees' element={<EmployeesList/>} />
+        <Route path='/add' element={<AddEmployee/>} />
+        <Route path='/employees/:id/' element={<Employee/>} />
+      </Routes>
+    </div>
   </div>
   );
 }
