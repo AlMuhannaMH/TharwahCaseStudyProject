@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-import 'antd/dist/antd.css';
+import 'antd/dist/antd.min.css';
 import { Layout, Menu } from 'antd';
 import "./App.css";
 
@@ -28,9 +28,8 @@ function App() {
     </Layout>
     <div>
       <Routes>
-
-        <Route exact path={["/", "/employees"]} element={<EmployeesList/>} />
-        <Route exact path='/add' element={<AddEmployee/>} />
+        <Route path={["/employees"]} element={<EmployeesList/>} />
+        <Route path='/add' element={<AddEmployee/>} />
         <Route path='/employees/:id/' element={<Employee/>} />
       </Routes>
     </div>
