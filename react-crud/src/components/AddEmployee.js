@@ -32,7 +32,7 @@ const AddEmployee = () => {
         setEmployee({
           id: response.data.id,
           firstName: response.data.first_name,
-          firstName: response.data.last_name,
+          last_name: response.data.last_name,
           jobTitle: response.data.job_title,
           managerID: response.data.manager,
           departmentID: response.data.department
