@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import React from "react";
+import { Routes, Route, Link } from "react-router-dom";
 import 'antd/dist/antd.min.css';
 import { Layout, Menu } from 'antd';
 import "./App.css";
@@ -11,7 +11,7 @@ import EmployeesList from "./components/EmployeesList";
 const { Header, Content, Footer } = Layout;
 function App() {
   return (
-  <BrowserRouter>
+  <div>
     <Layout>
       <Header style={{ position: 'fixed', zIndex: 1, width: '100%' }}>
         <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['1']}>
@@ -33,8 +33,8 @@ function App() {
         <Route path='/employees/:id/' element={<Employee/>} />
       </Routes>
     </div>
-  </BrowserRouter>
-  );
+  </div>
+      );
 }
 
 export default App;
