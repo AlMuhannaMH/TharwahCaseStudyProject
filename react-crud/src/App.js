@@ -30,9 +30,9 @@ function App() {
       <Content style={{ padding: "0 50px" }}>
         <div style={{ background: "#fff", padding: 24, minHeight: 280 }}>
         <Routes>
-          <Route path="/tutorials/" element={<EmployeesList/>} />
+          <Route path="/employees/" element={<EmployeesList/>} />
           <Route path="/add/" element={<AddEmployee/>} />
-          <Route path="/tutorials/:id/" element={<Employee/>} />
+          <Route path="/employees/:id/" element={<Employee/>} />
         </Routes>
         </div>
       </Content>
