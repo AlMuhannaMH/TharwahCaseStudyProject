@@ -1,7 +1,7 @@
 import http from "../http-common";
 
 const getAll = () => {
-  return http.get("/employees");
+  return http.get("/employees/");
 };
 
 const get = id => {
@@ -9,7 +9,7 @@ const get = id => {
 };
 
 const create = data => {
-  return http.post("/employees", data);
+  return http.post("/employees/", data);
 };
 
 const update = (id, data) => {
@@ -21,7 +21,7 @@ const remove = id => {
 };
 
 const removeAll = () => {
-  return http.delete(`/employees`);
+  return http.delete(`/employees/`);
 };
 
 const findByFirstName = firstName => {

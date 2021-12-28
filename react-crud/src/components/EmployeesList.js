@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 const EmployeesList = () => {
   const [employees, setEmployees] = useState([]);
   const [currentEmployee, setCurrentEmployee] = useState(null);
-  const [currentIndex, setCurrentIndex] = useState(-1);
   const [searchFirstName, setSearchFirstName] = useState("");
 
   useEffect(() => {
@@ -31,12 +30,6 @@ const EmployeesList = () => {
   const refreshList = () => {
     retrieveEmployees();
     setCurrentEmployee(null);
-    setCurrentIndex(-1);
-  };
-
-  const setActiveEmployee = (employee, index) => {
-    setCurrentEmployee(employee);
-    setCurrentIndex(index);
   };
 
   const removeAllEmployees = () => {
@@ -62,9 +55,9 @@ const EmployeesList = () => {
   };
 
   return (
-    <div className="list row">
-      <div className="col-md-8">
-        <div className="input-group mb-3">
+    <div >
+      <div >
+        <div >
           <input
             type="text"
             className="form-control"
@@ -72,9 +65,9 @@ const EmployeesList = () => {
             value={searchFirstName}
             onChange={onChangeSearchFirstName}
           />
-          <div className="input-group-append">
+          <div >
             <button
-              className="btn btn-outline-secondary"
+
               type="button"
               onClick={findByFirstName}
             >
@@ -83,17 +76,13 @@ const EmployeesList = () => {
           </div>
         </div>
       </div>
-      <div className="col-md-6">
+      <div >
         <h4>Employees List</h4>
 
-        <ul className="list-group">
+        <ul >
           {employees &&
             employees.map((employee, index) => (
               <li
-                className={
-                  "list-group-item " + (index === currentIndex ? "active" : "")
-                }
-                onClick={() => setActiveEmployee(employee, index)}
                 key={index}
               >
                 {employee.firstName}
@@ -102,13 +91,12 @@ const EmployeesList = () => {
         </ul>
 
         <button
-          className="m-3 btn btn-sm btn-danger"
           onClick={removeAllEmployees}
         >
           Remove All
         </button>
       </div>
-      <div className="col-md-6">
+      <div >
         {currentEmployee ? (
           <div>
             <h4>Employee</h4>
@@ -124,10 +112,8 @@ const EmployeesList = () => {
               </label>{" "}
               {currentEmployee.LastName}
             </div>
-
             <Link
               to={"/employees/" + currentEmployee.id}
-              className="badge badge-warning"
             >
               Edit
             </Link>

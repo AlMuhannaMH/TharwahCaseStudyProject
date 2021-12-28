@@ -33,27 +33,6 @@ const Employee = props => {
     setCurrentEmployee({ ...currentEmployee, [name]: value });
   };
 
-  const updatePublished = status => {
-    var data = {
-      id: currentEmployee.id,
-      published: status,
-      firstName: currentEmployee.firstName,
-      lastName: currentEmployee.lastName,
-      jobTitle: currentEmployee.jobTitle,
-      managerID: currentEmployee.managerID,
-      departmentID: currentEmployee.departmentID,
-    };
-
-    EmployeeDataService.update(currentEmployee.id, data)
-      .then(response => {
-        setCurrentEmployee({ ...currentEmployee, published: status });
-        console.log(response.data);
-      })
-      .catch(e => {
-        console.log(e);
-      });
-  };
-
   const updateEmployee = () => {
     EmployeeDataService.update(currentEmployee.id, currentEmployee)
       .then(response => {
@@ -148,28 +127,7 @@ const Employee = props => {
                 onChange={handleInputChange}
               />
             </div>
-            <div className="form-group">
-              <label>
-                <strong>Status:</strong>
-              </label>
-              {currentEmployee.published ? "Published" : "Pending"}
-            </div>
           </form>
-
-          {currentEmployee.published ? (
-            <button
-              onClick={() => updatePublished(false)}
-            >
-              UnPublish
-            </button>
-          ) : (
-            <button
-              onClick={() => updatePublished(true)}
-            >
-              Publish
-            </button>
-          )}
-
           <button  onClick={deleteEmployee}>
             Delete
           </button>

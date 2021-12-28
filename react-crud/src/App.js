@@ -21,8 +21,9 @@ function App() {
           defaultSelectedKeys={["1"]}
           style={{ lineHeight: "64px" }}
         >
-          <Menu.Item key="1">Employees</Menu.Item>
-          <Menu.Item key="2">Add</Menu.Item>
+          <Menu.Item key="1"><Link to={"/"}>Tharwah</Link></Menu.Item>
+          <Menu.Item key="2"><Link to={"/employees"}>Employees</Link></Menu.Item>
+          <Menu.Item key="3"><Link to={"/add"}>Add</Link></Menu.Item>
         </Menu>
       </Header>
 
